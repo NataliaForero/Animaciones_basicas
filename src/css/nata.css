@@ -105,7 +105,9 @@ animation-duration: 3s;
     justify-content: center;
 }
 .Menu ul{
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 25px 25px 35px 35px;
     width: min-content;
     height: min-content;
     justify-content: space-between;
@@ -114,7 +116,7 @@ animation-duration: 3s;
 }
 
 .Menu ul li{
-    background-color: #A9ECFF;
+    background-color: #AF9FD7;
     display: flex;
     align-items: center;
     list-style: none;
@@ -142,7 +144,6 @@ animation-duration: 3s;
     width: 99%;
     height: auto;
     justify-content: space-around;
-    border: 1px solid red;
 
 }
 
@@ -182,7 +183,6 @@ animation-duration: 3s;
     grid-template-rows: auto;
     column-gap: 10px;
     row-gap: 15px;
-    border: 1px solid red;
 }
 
 @media screen and (min-width:421px) and (max-width:800px) {
@@ -191,12 +191,22 @@ animation-duration: 3s;
         grid-template-columns:1fr 1fr;
 
     }
+    .Menu ul{
+        grid-template-columns:1fr 1fr;
+        column-gap: 40px;
+        row-gap:45px ;
+    }
 }
 @media screen and (min-width:375px) and (max-width:420px){
 
     .transiciones, .giros{
         grid-template-columns:1fr;
 
+    }
+    .Menu ul{
+        grid-template-columns: 1fr;
+        column-gap: 40px;
+        row-gap:45px ;
     }
 
 }
@@ -318,7 +328,15 @@ animation-duration: 3s;
     }
 }
 
-
+@keyframes rotation {
+    0% {
+      transform:rotate(0deg);
+    }
+    100% {
+      transform:rotate(360deg);
+    }
+  }
+  
 /* Giros */
 
 .Giro_completo:hover{
@@ -345,11 +363,10 @@ transform: rotate(360deg);
 }
 
 .Giro_infinite:hover{
-    animation-name: girar;
+    animation-name: rotation;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
-    animation-duration: 2s;
-    transform: rotate(460deg);
+    animation-duration: 2s; 
 }
 
 
